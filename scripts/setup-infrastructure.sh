@@ -20,7 +20,7 @@ if [[ ! -f "/home/qdnqn/.run.once" ]]; then
   helm upgrade --install kafka ../charts/kafka --namespace kafka --values ../charts/kafka/values.yaml
   helm upgrade --install kafka ../charts/kafdrop --namespace kafdrop --values ../charts/kafdrop/values.yaml
 
-  VM_IP=hostname -I | cut -d " " -f1
+  VM_IP=$(hostname -I | cut -d " " -f1)
   sed -i "s/{VM_IP}/${VM_IP}/g" resources/raw/yaml/setup/ingresses.yaml
 
   kubectl apply -f resources/raw/yaml/setup/ingresses.yaml

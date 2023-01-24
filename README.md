@@ -45,6 +45,10 @@ Output should look like this. If everything is configured correctly:
 - k3s is installed
 - traefik is available and local.k3s is serving ingress endpoints
 
+If the multipass is timed out you to do mount manually running:
+```azure
+multipass mount ./ k3s:/home/ubuntu/cloud-native-infrastructure
+```
 ### Test if everything is configured
 From the host machine terminal, execute
 ```bash
