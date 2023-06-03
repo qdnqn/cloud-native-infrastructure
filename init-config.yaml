@@ -49,6 +49,8 @@ write_files:
     append: true
   - content: |
       #!/bin/bash
+      INSTALL="argocd"
+      
       SP="/-\|"
       if [[ ! -f "/home/ubuntu/.cloud-init.done" ]]; then
         echo -n "Waiting for cloud init to finish "
@@ -72,11 +74,9 @@ write_files:
         
       eval `ssh-agent`
       sudo chown ubuntu /var/run/docker.sock
-
-      cd /home/ubuntu/
                   
       cd /home/ubuntu/cloud-native-infrastructure
-      ./scripts/setup-infrastructure.sh
+      ./scripts/setup-infrastructure.sh $INSTALL
       
       export GOROOT=/usr/local/go
       export PATH=$GOROOT/bin:$PATH
