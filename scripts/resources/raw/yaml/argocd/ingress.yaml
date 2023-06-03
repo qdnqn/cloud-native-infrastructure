@@ -26,5 +26,11 @@ spec:
           serversTransport: argocd
           port: 443
           namespace: argocd
-      tls:
-        passthrough: true
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: ServersTransport
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  insecureSkipVerify: true
