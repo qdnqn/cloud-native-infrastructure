@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd "$(dirname "$0")"
+echo "PWD: $(dirname "$0")"
 
 if [[ ! -f "/home/qdnqn/.run.once" ]]; then
   curl -sfL https://get.k3s.io | sh -
