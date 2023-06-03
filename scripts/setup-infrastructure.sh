@@ -20,7 +20,7 @@ if [[ ! -f "/home/qdnqn/.run.once" ]]; then
   VM_IP=$(hostname -I | cut -d " " -f1)
   find resources/raw/yaml/ -type f -name "*.yaml" -print0 | xargs -0 sed -i "s/{VM_IP}/${VM_IP}/g"
 
-  kubectl apply -f resources/raw/yaml/setup/ingresses.yaml
+  kubectl apply -f resources/raw/yaml/setup/ingress.yaml
 
   # Start docker registry on the Virtual Machine - used for pulling from k3s cluster
   docker run -d -p 5000:5000 --restart=always --name registry registry:2
