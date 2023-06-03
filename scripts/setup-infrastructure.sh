@@ -16,10 +16,6 @@ if [[ ! -f "/home/qdnqn/.run.once" ]]; then
 
   # Setup Traefik
   kubectl apply -f resources/raw/yaml/setup/traefik-config-k3s.yaml
-
-  VM_IP=$(hostname -I | cut -d " " -f1)
-  sed -i "s/{VM_IP}/${VM_IP}/g" resources/raw/yaml/setup/ingress.yaml
-
   kubectl apply -f resources/raw/yaml/setup/ingresses.yaml
 
   # Start docker registry on the Virtual Machine - used for pulling from k3s cluster
