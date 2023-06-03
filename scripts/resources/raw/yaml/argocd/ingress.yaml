@@ -23,6 +23,6 @@ spec:
       kind: Rule
       services:
         - name: argocd-server
-          port: 8080
+          port: 443
           namespace: argocd
 ---
