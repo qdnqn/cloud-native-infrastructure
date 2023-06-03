@@ -9,7 +9,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: ((PathPrefix(`/api`) || PathPrefix(`/dashboard`)))
+      match: Host(`{VM_IP}`) && ((PathPrefix(`/api`) || PathPrefix(`/dashboard`)))
       services:
         - kind: TraefikService
           name: api@internal
