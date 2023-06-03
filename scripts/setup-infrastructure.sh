@@ -3,6 +3,7 @@
 cd "$(dirname "$0")"
 
 if [[ ! -f "/home/qdnqn/.run.once" ]]; then
+  curl -sfL https://get.k3s.io | sh -
   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
   while [[ $(kubectl get crd | grep ingressroutes.traefik.containo.us | wc -l) == 0 ]];
