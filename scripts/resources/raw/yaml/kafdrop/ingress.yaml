@@ -19,7 +19,7 @@ spec:
     - web
     - websecure
   routes:
-    - match: Host(`*`) && PathPrefix(`/kafdrop`)
+    - match: PathPrefix(`/kafdrop`)
       kind: Rule
       services:
         - name: kafka-kafdrop

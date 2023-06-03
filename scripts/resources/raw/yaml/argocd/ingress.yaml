@@ -19,7 +19,7 @@ spec:
     - web
     - websecure
   routes:
-    - match: Host(`*`) && PathPrefix(`/argocd`)
+    - match: PathPrefix(`/argocd`)
       kind: Rule
       services:
         - name: argocd-server
