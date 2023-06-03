@@ -25,7 +25,7 @@ if [[ ! -f "/home/qdnqn/.run.once" ]]; then
   # Install specified helm charts for the parent repository
   for arg in "$@"
   do
-      if [[ $arg == "kafka"]]; then
+      if [[ $arg == "kafka" ]]; then
           kubectl create ns kafka
           helm upgrade --install kafka ../charts/kafka --namespace kafka --values ../charts/kafka/values.yaml
       elif [[ $arg == "kafdrop" ]]; then
